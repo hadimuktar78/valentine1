@@ -4,20 +4,21 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden; /* prevents scrolling */
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #fde2e4, #fff1f3);
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow-x: hidden;
-  padding: 20px;
+  position: relative;
 }
 
 .container {
-  width: 100%;
   max-width: 900px;
+  padding: 20px;
+  width: 100%;
 }
 
 h1 {
@@ -32,8 +33,6 @@ p {
 
 .buttons {
   margin-top: 30px;
-  position: relative;
-  height: 120px;
 }
 
 button {
@@ -43,8 +42,7 @@ button {
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  transition: transform 0.15s ease;
-  touch-action: manipulation;
+  transition: transform 0.2s ease, left 0.2s ease, top 0.2s ease;
 }
 
 button:active {
@@ -58,7 +56,6 @@ button:active {
 
 .no {
   background: #ffb3c1;
-  position: absolute;
 }
 
 .hidden {
@@ -75,12 +72,12 @@ button:active {
 }
 
 .gallery img {
-  width: min(42vw, 180px);
+  width: min(40vw, 180px);
   border-radius: 14px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-/* Hearts */
+/* Floating Hearts */
 .hearts span {
   position: fixed;
   bottom: -10px;
@@ -100,4 +97,3 @@ button:active {
     opacity: 0;
   }
 }
-
