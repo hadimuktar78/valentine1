@@ -4,16 +4,22 @@ const heartsContainer = document.querySelector(".hearts");
 function sayYes() {
   document.getElementById("question").classList.add("hidden");
   document.getElementById("result").classList.remove("hidden");
-
   music.play();
   startHearts();
 }
 
 function moveNo() {
   const btn = document.getElementById("noBtn");
-  btn.style.position = "absolute";
-  btn.style.left = Math.random() * 80 + "vw";
-  btn.style.top = Math.random() * 80 + "vh";
+
+  const padding = 20;
+  const maxX = window.innerWidth - btn.offsetWidth - padding;
+  const maxY = window.innerHeight - btn.offsetHeight - padding;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
 }
 
 function startHearts() {
@@ -24,8 +30,6 @@ function startHearts() {
     heart.style.animationDuration = (4 + Math.random() * 4) + "s";
     heartsContainer.appendChild(heart);
 
-    setTimeout(() => {
-      heart.remove();
-    }, 8000);
-  }, 400);
+    setTimeout(() => heart.remove(), 8000);
+  }, 500);
 }
