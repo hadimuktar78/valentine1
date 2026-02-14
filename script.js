@@ -11,8 +11,10 @@ function sayYes() {
 function moveNo() {
   const btn = document.getElementById("noBtn");
 
-  const maxX = window.innerWidth - btn.offsetWidth;
-  const maxY = window.innerHeight - btn.offsetHeight;
+  const padding = 20;
+
+  const maxX = window.innerWidth - btn.offsetWidth - padding;
+  const maxY = window.innerHeight - btn.offsetHeight - padding;
 
   const x = Math.random() * maxX;
   const y = Math.random() * maxY;
